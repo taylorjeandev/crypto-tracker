@@ -10,11 +10,13 @@
 </head>
 <body>
 <h1 id="wow">Cryptocurrencies</h1>
+<a href="/login"> Login</a>
+<a href="/signup"> Signup</a>
 <ul class="test">
     <% currencies.forEach( el => { %>
     <li >
         <span><%= el.name %></span>
-        <img src="<%= el.image %>"></img>
+        <img class="coinImages" src="<%= el.image %>"></img>
     </li>
     <% }) %>
 </ul>
