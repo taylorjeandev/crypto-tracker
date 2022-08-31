@@ -22,6 +22,8 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
+
+
 // Sessions
 app.use(
     session({
@@ -35,12 +37,14 @@ app.use(
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
-
 app.use(flash())
-  
+
+
+//ROUTES
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
- 
+
+//LISTEN
 app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+    console.log('Server is running, you better catch it on !')
 })    
