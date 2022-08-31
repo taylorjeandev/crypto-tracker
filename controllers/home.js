@@ -1,34 +1,16 @@
+const axios = require("axios");
+
 module.exports = {
+    getIndex: async (req, res) => {
+        try {
 
-    getIndex: (req,res)=>{
-        /* Example in Node.js */
-        const axios = require('axios');
+            const data = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=10&page=1&sparkline=false')
+            console.log(data)
+            res.render('index.ejs', {currencies: data.data})
 
-        let response = null;
-        new Promise(async (resolve, reject) => {
-            try {
-                response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest ', {
-                    headers: {
-                        'X-CMC_PRO_API_KEY': process.env.COINBASE_API_KEY,
+        } catch (err) {
+            console.error(err)
+        }
 
-                    },
-                });
-            } catch(ex) {
-                response = null;
-                // error
-                console.log(ex);
-                reject(ex);
-            }
-            if (response) {
-                // success
-                const json = response.data;
-                console.log(json);
-                resolve(json);
-                res.render('index.ejs')
-            }
-        });
-
-        // Response
-        // res.render('index.ejs')
     }
 }
