@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const portfolioSchema = new mongoose.Schema({
-  portfolio: {
+  coin: {
     type: String,
     required: true,
   },

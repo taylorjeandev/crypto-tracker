@@ -5,15 +5,15 @@ module.exports = {
         console.log(req.user)
         try{
             const portfolioItems = await portfolio.find({userId:req.user.id})
-            const amountLeft = await portfolio.countDocuments({userId:req.user.id,completed: false})
-            res.render('portfolio.ejs', {portfolio: portfolioItems, amount: amountLeft, user: req.user})
+            const amountOfCoins = await portfolio.countDocuments({userId:req.user.id})
+            res.render('portfolio.ejs', {coin: portfolioItems, amount: amountOfCoins, user: req.user})
         }catch(err){
             console.log(err)
         }
     },
     createCoin: async (req, res)=>{
         try{
-            await portfolio.create({portfolio: req.body.portfolioItems, completed: false, userId: req.user.id})
+            await portfolio.create({coin: req.body.portfolioItem, amount: req.body.amountOfCoin, userId: req.user.id})
             console.log('Coin has been added!')
             res.redirect('/portfolio')
         }catch(err){
@@ -45,7 +45,7 @@ module.exports = {
     deleteCoin: async (req, res)=>{
         console.log(req.body.IdFromJSFile)
         try{
-            await portfolio.findOneAndDelete({_id:req.body.portfolioIdFromJSFile})
+            await portfolio.findOneAndDelete({_id:req.body.coinIdFromJSFile})
             console.log('Deleted coin')
             res.json('Deleted It')
         }catch(err){
