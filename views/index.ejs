@@ -12,14 +12,36 @@
 <h1 id="wow">Cryptocurrencies</h1>
 <a href="/login"> Login</a>
 <a href="/signup"> Signup</a>
-<ul class="test">
+<!--<ul class="test">-->
+<!--    <% currencies.forEach( el => { %>-->
+<!--    <li >-->
+<!--        <span><%= el.name %></span>-->
+<!--        <img class="coinImages" src="<%= el.image %>"></img>-->
+<!--    </li>-->
+<!--    <% }) %>-->
+<!--</ul>-->
+
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>24h%</th>
+
+    </tr>
+    <tbody>
     <% currencies.forEach( el => { %>
-    <li >
-        <span><%= el.name %></span>
-        <img class="coinImages" src="<%= el.image %>"></img>
-    </li>
+    <tr>
+        <td><%=el.market_cap_rank%></td>
+        <td><%=el.name%></td>
+        <td><%=el.current_price%></td>
+        <td><%= el.price_change_percentage_24h%></td>
+    </tr>
     <% }) %>
-</ul>
+    </tbody>
+    </thead>
+</table>
 
 <script src="js/main.js"></script>
 </body>

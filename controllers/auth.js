@@ -2,6 +2,8 @@ const passport = require('passport')
 const validator = require('validator')
 const User = require('../models/User')
 
+ // DISPLAY LOGIN PAGE
+
  exports.getLogin = (req, res) => {
     if (req.user) {
       return res.redirect('/portfolio')
@@ -10,7 +12,9 @@ const User = require('../models/User')
       title: 'Login'
     })
   }
-  
+
+  // WHEN SUBMIT BUTTON IS PRESSED ON LOGIN PAGE
+
   exports.postLogin = (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
@@ -35,7 +39,9 @@ const User = require('../models/User')
       })
     })(req, res, next)
   }
-  
+
+  // LOGIN OUT OF THE APPLICATION
+
   exports.logout = (req, res) => {
     req.logout()
     req.session.destroy((err) => {
@@ -44,7 +50,9 @@ const User = require('../models/User')
       res.redirect('/')
     })
   }
-  
+
+  //SIGNING UP INTO THE APP
+
   exports.getSignup = (req, res) => {
     if (req.user) {
       return res.redirect('/portfolio')
@@ -53,7 +61,8 @@ const User = require('../models/User')
       title: 'Create Account'
     })
   }
-  
+
+// WHEN SUBMIT BUTTON IS PRESSED ON SIGN UP PAGE
   exports.postSignup = (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
