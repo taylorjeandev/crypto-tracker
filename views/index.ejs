@@ -34,7 +34,11 @@
     <% currencies.forEach( el => { %>
     <tr>
         <td><%=el.market_cap_rank%></td>
-        <td><%=el.name%></td>
+        <td>
+            <img class="coinImages" src="<%=el.image%>" alt="">
+            <%=el.name%>
+            
+        </td>
         <td><%=el.current_price%></td>
         <td><%= el.price_change_percentage_24h%></td>
     </tr>
