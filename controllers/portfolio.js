@@ -1,11 +1,11 @@
-const portfolio = require('../models/portfolio')
+const Portfolio = require('../models/portfolio')
 
 module.exports = {
     getPortfolio: async (req,res)=>{
         console.log(req.user)
         try{
-            const portfolioItems = await portfolio.find({userId:req.user.id})
-            const amountOfCoins = await portfolio.countDocuments({userId:req.user.id})
+            const portfolioItems = await Portfolio.find({userId:req.user.id})
+            const amountOfCoins = await Portfolio.countDocuments({userId:req.user.id})
             res.render('portfolio.ejs', {coin: portfolioItems, amount: amountOfCoins, user: req.user})
         }catch(err){
             console.log(err)
