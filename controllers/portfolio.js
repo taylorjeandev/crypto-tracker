@@ -1,4 +1,5 @@
 const Portfolio = require('../models/portfolio')
+const axios = require("axios");
 
 module.exports = {
     getPortfolio: async (req,res)=>{
@@ -6,14 +7,16 @@ module.exports = {
         try{
             const portfolioItems = await Portfolio.find({userId:req.user.id})
             const amountOfCoins = await Portfolio.countDocuments({userId:req.user.id})
-            res.render('portfolio.ejs', {coin: portfolioItems, amount: amountOfCoins, user: req.user})
+            const data = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=10&page=1&sparkline=false')
+
+            res.render('portfolio.ejs', {coin: portfolioItems, amount: amountOfCoins, user: req.user, currencies: data.data})
         }catch(err){
             console.log(err)
         }
     },
     createCoin: async (req, res)=>{
         try{
-            await portfolio.create({coin: req.body.portfolioItem, amount: req.body.amountOfCoin, userId: req.user.id})
+            await Portfolio.create({coin: req.body.portfolioItem, amount: req.body.amountOfCoin, userId: req.user.id})
             console.log('Coin has been added!')
             res.redirect('/portfolio')
         }catch(err){

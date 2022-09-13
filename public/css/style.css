@@ -266,3 +266,12 @@ span{
 .negativeNumber{
 color:red;
 }
+
+.portfolioSection{
+    color: white;
+    text-align: center;
+}
+
+.test{
+    color: black;
+}
