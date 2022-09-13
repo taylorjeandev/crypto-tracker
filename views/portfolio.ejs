@@ -23,14 +23,14 @@
                     </td>
                     <td><%= currencies[0].current_price * el.amount %></td>
 
-                    <% let individualCoin = currencies.findIndex((element,index)=>{
+                    <%  currencies.findIndex((element,index)=>{
                         if(element.symbol === el.coin.toLowerCase()){
-                          console.log(index)
+
                             return index
                         }
 
                     })%>
-
+                    console.log(individualCoin)
                     <td ><%=currencies[0].current_price  %></td>
                 </tr>
 
