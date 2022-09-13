@@ -33,7 +33,7 @@
 
                     </td>
                     <td><%= el.current_price %></td>
-                    <td><%= el.price_change_percentage_24h %></td>
+                    <td class="<%= el.price_change_percentage_24h > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_24h %></td>
         </tr>
         <% }) %>
         </tbody>
