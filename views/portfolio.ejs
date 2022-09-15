@@ -9,6 +9,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Changed since bought</th>
+                <th>test</th>
             </tr>
             </thead>
             <tbody>
@@ -23,15 +24,15 @@
                     </td>
                     <td><%= currencies[0].current_price * el.amount %></td>
 
-                    <%  currencies.findIndex((element,index)=>{
-                        if(element.symbol === el.coin.toLowerCase()){
+                    <%currencies.findIndex((element,index)=>{ %>
+                        <td>
+                        <% if(element.symbol === el.coin.toLowerCase()){%>
+                        <%=currencies[index].current_price  %>
+                        <% } %>
 
-                            return index
-                        }
+                    </td>
+                    <% }) %>
 
-                    })%>
-
-                    <td ><%=currencies[0].current_price  %></td>
                 </tr>
 
             <% }) %>
