@@ -7,8 +7,8 @@
             <tr>
                 <th>Quantity</th>
                 <th>Name</th>
+                <th>Test Price</th>
                 <th>Price</th>
-                <th>Changed since bought</th>
 
             </tr>
             </thead>
@@ -27,7 +27,7 @@
                     <%currencies.findIndex((element,index)=>{ %>
 
                         <% if(element.symbol === el.coin.toLowerCase()){%>
-                        <%=currencies[index].current_price  %>
+                        <%=currencies[index].current_price.toFixed(2)  %>
 
 
                     </td>
