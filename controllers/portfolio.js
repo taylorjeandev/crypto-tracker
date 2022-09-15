@@ -48,7 +48,7 @@ module.exports = {
     deleteCoin: async (req, res)=>{
         console.log(req.body.IdFromJSFile)
         try{
-            await portfolio.findOneAndDelete({_id:req.body.coinIdFromJSFile})
+            await Portfolio.findOneAndDelete({_id:req.body.coinIdFromJSFile})
             console.log('Deleted coin')
             res.json('Deleted It')
         }catch(err){

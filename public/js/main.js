@@ -15,7 +15,9 @@ Array.from(portfolioComplete).forEach((el)=>{
 })
 
 async function deleteCoin(){
+    console.log('here in delete')
     const coinId = this.parentNode.dataset.id
+    console.log(coinId)
     try{
         const response = await fetch('portfolio/deleteCoin', {
             method: 'delete',

@@ -1,65 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Portfolio</title>
+</head>
+<body>
 <%- include('partials/header') -%>
-    <section class="portfolioSection">
-        <h1>Portfolio</h1>
+<section class="portfolioSection">
+    <h1>Portfolio</h1>
 
-        <table class="styled-table">
-            <thead>
-            <tr>
-                <th>Quantity</th>
-                <th>Name</th>
-                <th>Test Price</th>
-                <th>Price</th>
+    <table class="styled-table">
+        <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Name</th>
+            <th>Test Price</th>
+            <th>Price</th>
+            <th>Delete</th>
 
-            </tr>
-            </thead>
-            <tbody>
-            <% coin.forEach( el => { %>
+        </tr>
+        </thead>
+        <tbody>
+        <% coin.forEach( el => { %>
 
-                <tr class="active-row portfolioItem test" data-id='<%=el._id%>'>
-                    <td><%=el.amount%></td>
-                    <td>
-                        <img class="coinImages" src="<%= el.image %>" alt="">
-                        <%= el.coin %>
+        <tr class="active-row portfolioItem test" data-id='<%=el._id%>'>
+            <td><%=el.amount%></td>
+            <td>
+                <img class="coinImages" src="<%= el.image %>" alt="">
+                <%= el.coin %>
 
-                    </td>
-                    <td><%= currencies[0].current_price * el.amount %></td>
-                    <td>
-                    <%currencies.findIndex((element,index)=>{ %>
+            </td>
+            <td><%= currencies[0].current_price * el.amount %></td>
+            <td>
+                <%currencies.findIndex((element,index)=>{ %>
 
-                        <% if(element.symbol === el.coin.toLowerCase()){%>
-                        <%=currencies[index].current_price.toFixed(2)  %>
+                    <% if(element.symbol === el.coin.toLowerCase()){%>
+                    <%=currencies[index].current_price.toFixed(2)  %>
 
 
-                    </td>
-                    <% } %>
-                    <% }) %>
-
-                </tr>
-
+            </td>
+            <% } %>
             <% }) %>
-            </tbody>
-        </table>
+            <td class='del'>Delete </td>
+        </tr>
+
+        <% }) %>
+        </tbody>
+    </table>
 
 
 
 
 
-<!--        <ul>-->
-<!--        <% coin.forEach( el => { %>-->
-<!--            <li class='portfolioItem' data-id='<%=el._id%>'>-->
-<!--                <span><%= el.coin %> - <%= el.amount%></span>-->
-<!--                <span class='del'> Delete </span>-->
-<!--            </li>-->
-<!--        <% }) %>    -->
-<!--        </ul>-->
 
-        <h2><%= user.userName %> has <%= amount %> coin</h2>
 
-        <form action="/portfolio/createCoin" method='POST'>
-            <input type="text" placeholder="Enter Coin" name='portfolioItem'>
-            <input type="text" placeholder="Enter Amount" name='amountOfCoin'>
-            <input type="submit">
-        </form>
-        <a href="/logout">Logout</a>
+    <h2><%= user.userName %> has <%= amount %> coin</h2>
+
+    <form action="/portfolio/createCoin" method='POST'>
+        <input type="text" placeholder="Enter Coin" name='portfolioItem'>
+        <input type="text" placeholder="Enter Amount" name='amountOfCoin'>
+        <input type="submit">
+    </form>
+    <a href="/logout">Logout</a>
 
     <%- include('partials/footer') -%>
+    <script src="js/main.js"></script>
+</body>
+</html>
