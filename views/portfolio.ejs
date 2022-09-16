@@ -18,8 +18,8 @@
         <tr>
             <th>Quantity</th>
             <th>Name</th>
-            <th>Test Price</th>
-            <th>Price</th>
+            <th>Initial Price </th>
+            <th>Total</th>
             <th>Delete</th>
 
         </tr>
@@ -34,12 +34,14 @@
                 <%= el.coin %>
 
             </td>
-            <td><%= currencies[0].current_price * el.amount %></td>
-            <td>
+            <td> <%= currencies[0].current_price %></td>
+            <td class="total">
                 <%currencies.findIndex((element,index)=>{ %>
 
                     <% if(element.symbol === el.coin.toLowerCase()){%>
-                    <%=currencies[index].current_price.toFixed(2)  %>
+
+                    <%=currencies[index].current_price.toFixed(2) * el.amount  %>
+
 
 
             </td>
@@ -49,6 +51,13 @@
         </tr>
 
         <% }) %>
+        <tr class="active-row portfolioItem test">
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td id="currentBalance"></td>
+            <td></td>
+        </tr>
         </tbody>
     </table>
 
@@ -68,6 +77,8 @@
     <a href="/logout">Logout</a>
 
     <%- include('partials/footer') -%>
-    <script src="js/main.js"></script>
+    <script src="js/main.js">
+
+    </script>
 </body>
 </html>

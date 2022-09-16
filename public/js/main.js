@@ -69,3 +69,11 @@ async function markIncomplete(){
         console.log(err)
     }
 }
+let total = document.querySelectorAll('.total');
+console.log(total[0].innerText)
+console.log(total[1].innerText)
+let totalMoney = 0
+for(let i = 0; i < total.length;i++){
+    totalMoney += Number(total[i].innerText)
+}
+document.getElementById("currentBalance").innerHTML = totalMoney;
