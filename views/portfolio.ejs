@@ -40,7 +40,7 @@
 
                     <% if(element.symbol === el.coin.toLowerCase()){%>
 
-                    <%=currencies[index].current_price.toFixed(2) * el.amount  %>
+                    <%=currencies[index].current_price.toFixed(2) * el.amount.toFixed(2)  %>
 
 
 
@@ -70,7 +70,12 @@
     <h2><%= user.userName %> has <%= amount %> coin</h2>
 
     <form action="/portfolio/createCoin" method='POST'>
-        <input type="text" placeholder="Enter Coin" name='portfolioItem'>
+
+        <select name="portfolioItem" id="">
+            <% currencies.forEach( el => { %>
+            <option  value="<%=el.symbol.toUpperCase()%>" ><%=el.name%></option>
+            <% }) %>
+        </select>
         <input type="text" placeholder="Enter Amount" name='amountOfCoin'>
         <input type="submit">
     </form>

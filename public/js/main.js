@@ -76,4 +76,4 @@ let totalMoney = 0
 for(let i = 0; i < total.length;i++){
     totalMoney += Number(total[i].innerText)
 }
-document.getElementById("currentBalance").innerHTML = totalMoney;
+document.getElementById("currentBalance").innerHTML = totalMoney.toFixed(2);
