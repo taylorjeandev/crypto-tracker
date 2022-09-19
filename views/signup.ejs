@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 <%- include('partials/header') -%>
         <% if (locals.messages.errors) { %>
+=======
+<%- include('partials/headersignup') -%>
+    <section class="formSection">
+            <% if (locals.messages.errors) { %>
+>>>>>>> 1d7ecdd5e622f2ca6ee6d8beb55501f63de70101
             <% messages.errors.forEach( el => { %>
                 <div class="alert alert-danger"><%= el.msg %></div>
             <% }) %>    
@@ -10,7 +16,7 @@
             <% }) %>    
         <% } %>
        <form class="signUpForm" action="/signup" method="POST">
-            <input type="text" name="userName" placeholder="Username">
+            <input  type="text" name="userName" placeholder="Username">
             <input type="email" name="email" placeholder="Email">
             <input type="password" name="password" placeholder="Password">
             <input type="password" name="confirmPassword" placeholder="Confirm Password">

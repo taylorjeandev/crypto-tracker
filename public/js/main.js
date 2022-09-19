@@ -70,10 +70,9 @@ async function markIncomplete(){
     }
 }
 let total = document.querySelectorAll('.total');
-console.log(total[0].innerText)
-console.log(total[1].innerText)
-let totalMoney = 0
-for(let i = 0; i < total.length;i++){
+
+let totalMoney = Number(total[0].innerText)
+for(let i = 1; i < total.length;i++){
     totalMoney += Number(total[i].innerText)
 }
-document.getElementById("currentBalance").innerHTML = totalMoney.toFixed(2);
+document.getElementById("currentBalance").innerHTML = totalMoney.toFixed(0);
