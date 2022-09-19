@@ -1,18 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Portfolio</title>
-</head>
-<body>
-<%- include('partials/headerportfolio') -%>
+<%- include('partials/header') -%>
 <section class="portfolioSection">
     <h1>Portfolio</h1>
-
+    <a href="/logout">LOGOUT</a>
     <table class="styled-table">
         <thead>
         <tr>
@@ -79,11 +68,34 @@
         <input type="text" placeholder="Enter Amount" name='amountOfCoin'>
         <input type="submit">
     </form>
+</section>
+<section>
 
 
-    <%- include('partials/footer') -%>
-    <script src="js/main.js">
-
-    </script>
-</body>
-</html>
+        <table class="styled-table">
+            <thead>
+            <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>24h%</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% currencies.forEach( el => { %>
+    
+            <tr class="active-row">
+                <td><%= el.market_cap_rank %></td>-->
+                        <td>
+                            <img class="coinImages" src="<%= el.image %>" alt="">
+                            <%= el.name %>
+    
+                        </td>
+                        <td><%= el.current_price %></td>
+                        <td class="<%= el.price_change_percentage_24h > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_24h %></td>
+            </tr>
+            <% }) %>
+            </tbody>
+        </table>
+</section>
+<%- include('partials/footer') -%>

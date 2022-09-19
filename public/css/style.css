@@ -71,6 +71,7 @@ a {
     align-items: center;
     gap: 3.75rem;
 
+
 }
 
 
@@ -81,10 +82,12 @@ a {
     font-size: 1.063rem;
     line-height: 1.625rem;
     color: white;
-    }
-#active{
+}
+
+.nav-link:hover{
     color: #06D6A0 ;
 }
+
 
 .social-menu {
     display: flex;
