@@ -70,10 +70,11 @@ async function markIncomplete(){
     }
 }
 let total = document.querySelectorAll('.total');
-
+let profit = 0
 let totalMoney = Number(total[0].innerText)
 for(let i = 1; i < total.length;i++){
     totalMoney += Number(total[i].innerText)
+
 }
 document.getElementById("currentBalance").innerHTML = totalMoney.toFixed(0);
 
@@ -81,4 +82,13 @@ if(totalMoney > 0){
     document.getElementById("currentBalance").classList.add("profit")
 } else {
     document.getElementById("currentBalance").classList.add("loss")
+}
+// adding color to the profit column
+for (let i = 0; i< total.length;i++){
+    if(Number(total[i].innerText)>0){
+        total[i].className = "profit"
+    } else {
+        total[i].className = "loss"
+    }
+
 }

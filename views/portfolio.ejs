@@ -36,12 +36,12 @@
 
             </td>
             <td> <%= el.pricePaid %></td>
-            <td class="total">
+            <td id="profit" class="total">
                 <%currencies.findIndex((element,index)=>{ %>
 
                     <% if(element.symbol === el.coin.toLowerCase()){%>
 
-                    <%=(currencies[index].current_price.toFixed(2) * el.amount.toFixed(2)) - el.pricePaid  %>
+                    <%=(currencies[index].current_price.toFixed(2) * el.amount.toFixed(2)) - el.pricePaid.toFixed(2)  %>
 
 
 

@@ -17,23 +17,32 @@
         <thead>
         <tr>
                     <th>#</th>
+                    <th></th>
                     <th>Name</th>
                     <th>Price</th>
+                    <th>1h%</th>
                     <th>24h%</th>
+                    <th>7D%</th>
+                    <th>14D%</th>
+                    <th>30D%</th>
+                    <th>1Y%</th>
         </tr>
         </thead>
         <tbody>
         <% currencies.forEach( el => { %>
 
         <tr class="active-row">
-            <td><%= el.market_cap_rank %></td>-->
-                    <td>
-                        <img class="coinImages" src="<%= el.image %>" alt="">
-                        <%= el.name %>
+            <td><%= el.market_cap_rank %></td>
+            <td><img class="coinImages" src="<%= el.image %>" alt=""></td>
+                     <td>  <%= el.name %>  </td>
 
-                    </td>
                     <td><%= el.current_price %></td>
-                    <td class="<%= el.price_change_percentage_24h > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_24h %></td>
+                    <td class="<%= el.price_change_percentage_1h_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_1h_in_currency.toFixed(2) %></td>
+                    <td class="<%= el.price_change_percentage_24h > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_24h.toFixed(2)%></td>
+                    <td class="<%= el.price_change_percentage_7d_in_currency> 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_7d_in_currency.toFixed(2) %></td>
+                    <td class="<%= el.price_change_percentage_14d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_14d_in_currency.toFixed(2) %></td>
+                    <td class="<%= el.price_change_percentage_30d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_30d_in_currency.toFixed(2) %></td>
+                    <td class="<%= el.price_change_percentage_1y_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_1y_in_currency.toFixed(2) %></td>
         </tr>
         <% }) %>
         </tbody>
