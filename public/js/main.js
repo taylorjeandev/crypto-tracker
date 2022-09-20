@@ -76,3 +76,9 @@ for(let i = 1; i < total.length;i++){
     totalMoney += Number(total[i].innerText)
 }
 document.getElementById("currentBalance").innerHTML = totalMoney.toFixed(0);
+
+if(totalMoney > 0){
+    document.getElementById("currentBalance").classList.add("profit")
+} else {
+    document.getElementById("currentBalance").classList.add("loss")
+}

@@ -12,6 +12,7 @@
 <%- include('partials/headerportfolio') -%>
 <section class="portfolioSection">
     <h1>Portfolio</h1>
+</section>
 
     <table class="styled-table">
         <thead>
@@ -19,7 +20,7 @@
             <th>Quantity</th>
             <th>Name</th>
             <th>Initial Price </th>
-            <th>Total</th>
+            <th>Profit</th>
             <th>Delete</th>
 
         </tr>
@@ -34,13 +35,13 @@
                 <%= el.coin %>
 
             </td>
-            <td> <%= currencies[0].current_price %></td>
+            <td> <%= el.pricePaid %></td>
             <td class="total">
                 <%currencies.findIndex((element,index)=>{ %>
 
                     <% if(element.symbol === el.coin.toLowerCase()){%>
 
-                    <%=currencies[index].current_price.toFixed(2) * el.amount.toFixed(2)  %>
+                    <%=(currencies[index].current_price.toFixed(2) * el.amount.toFixed(2)) - el.pricePaid  %>
 
 
 
@@ -66,8 +67,10 @@
 
 
 
-
+<section class="portfolioSection">
     <h2><%= user.userName %> has <%= amount %> coin</h2>
+</section>
+
 
     <form action="/portfolio/createCoin" method='POST'>
 
@@ -77,6 +80,7 @@
             <% }) %>
         </select>
         <input type="text" placeholder="Enter Amount" name='amountOfCoin'>
+        <input type="text" placeholder="Enter Price Paid" name='pricePaid'>
         <input type="submit">
     </form>
 

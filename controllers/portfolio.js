@@ -16,7 +16,7 @@ module.exports = {
     },
     createCoin: async (req, res)=>{
         try{
-            await Portfolio.create({coin: req.body.portfolioItem, amount: req.body.amountOfCoin, userId: req.user.id})
+            await Portfolio.create({coin: req.body.portfolioItem, amount: req.body.amountOfCoin, userId: req.user.id, pricePaid: req.body.pricePaid})
             console.log('Coin has been added!')
             res.redirect('/portfolio')
         }catch(err){

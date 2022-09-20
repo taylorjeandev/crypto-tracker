@@ -12,6 +12,10 @@ const PortfolioSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  pricePaid:{
+    type: Number,
+    required: true
   }
 })
 
