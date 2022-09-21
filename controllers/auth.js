@@ -37,6 +37,8 @@ const User = require('../models/User')
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
         res.redirect(req.session.returnTo || '/portfolio')
+
+
       })
     })(req, res, next)
   }
