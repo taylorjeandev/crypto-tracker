@@ -292,3 +292,11 @@ color:red;
 .loss{
     color: red;
 }
+
+#active{
+    color: #06D6A0;
+}
+
+.gone{
+    display: none;
+}
