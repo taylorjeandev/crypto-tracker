@@ -1,4 +1,58 @@
-<%- include('partials/header') -%>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:200,500,700,800'>
+    <title>Portfolio</title>
+</head>
+<body>
+<header id="header">
+
+    <div class="container">
+        <div class="subcontainer">
+            <nav class="navbar">
+                <a class="companyname">MONEY BAGS</a>
+                <ul class="social-menu">
+
+
+                </ul>
+                <ul class="nav-menu" id="active">
+                    <li  class="nav-item">
+                        <a id="active" class="nav-link" href="/">MARKET</a>
+                    </li>
+                    <li class="<%=!user? 'gone':'nav-item'%>">
+                        <a  class="<%=!user? 'gone':'nav-item'%>" href="/portfolio">PORTFOLIO</a>
+                    </li>
+                    <li class="<%=user? 'gone':'nav-item'%>">
+                        <a class="<%=user? 'gone':'nav-link'%>" href="/signup">SIGNUP</a>
+                    </li>
+                    <li class="<%=user? 'gone':'nav-item'%>">
+                        <a class="<%=user? 'gone':'nav-link'%>" href="/login">LOGIN</a>
+                    </li>
+                    <li class="<%=!user? 'gone':'nav-item'%>">
+                        <a class="nav-link" href="/logout">LOGOUT</a>
+                    </li>
+
+
+                </ul>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
 <section id="section1">
     <section class="main">
         <h1 class="mainh1">Start <span >monitoring</span> your portfolio</h1>
@@ -16,36 +70,40 @@
     <table class="styled-table">
         <thead>
         <tr>
-                    <th>#</th>
-                    <th></th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>1h%</th>
-                    <th>24h%</th>
-                    <th>7D%</th>
-                    <th>14D%</th>
-                    <th>30D%</th>
-                    <th>1Y%</th>
+            <th>#</th>
+            <th></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>1h%</th>
+            <th>24h%</th>
+            <th>7D%</th>
+            <th>14D%</th>
+            <th>30D%</th>
+            <th>1Y%</th>
         </tr>
         </thead>
         <tbody>
         <% currencies.forEach( el => { %>
 
-        <tr class="active-row">
-            <td><%= el.market_cap_rank %></td>
-            <td><img class="coinImages" src="<%= el.image %>" alt=""></td>
-                     <td>  <%= el.name %>  </td>
+            <tr class="active-row">
+                <td><%= el.market_cap_rank %></td>
+                <td><img class="coinImages" src="<%= el.image %>" alt=""></td>
+                <td>  <%= el.name %>  </td>
 
-                    <td><%= el.current_price %></td>
-                    <td class="<%= el.price_change_percentage_1h_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_1h_in_currency.toFixed(2) %></td>
-                    <td class="<%= el.price_change_percentage_24h > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_24h.toFixed(2)%></td>
-                    <td class="<%= el.price_change_percentage_7d_in_currency> 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_7d_in_currency.toFixed(2) %></td>
-                    <td class="<%= el.price_change_percentage_14d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_14d_in_currency.toFixed(2) %></td>
-                    <td class="<%= el.price_change_percentage_30d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_30d_in_currency.toFixed(2) %></td>
-                    <td class="<%= el.price_change_percentage_1y_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_1y_in_currency.toFixed(2) %></td>
-        </tr>
+                <td><%= el.current_price %></td>
+                <td class="<%= el.price_change_percentage_1h_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_1h_in_currency.toFixed(2) %></td>
+                <td class="<%= el.price_change_percentage_24h > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_24h.toFixed(2)%></td>
+                <td class="<%= el.price_change_percentage_7d_in_currency> 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_7d_in_currency.toFixed(2) %></td>
+                <td class="<%= el.price_change_percentage_14d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_14d_in_currency.toFixed(2) %></td>
+                <td class="<%= el.price_change_percentage_30d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_30d_in_currency.toFixed(2) %></td>
+                <td class="<%= el.price_change_percentage_1y_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_1y_in_currency.toFixed(2) %></td>
+            </tr>
         <% }) %>
         </tbody>
     </table>
 </section>
-<%- include('partials/footer') -%>
+
+</body>
+</html>
+
+
