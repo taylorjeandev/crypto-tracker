@@ -7,6 +7,10 @@ router.get('/', ensureAuth, portfolioController.getPortfolio)
 
 router.post('/createCoin', portfolioController.createCoin)
 
+router.put('/updateCoin', portfolioController.updateCoin)
+
 router.delete('/deleteCoin', portfolioController.deleteCoin)
+
+
 
 module.exports = router

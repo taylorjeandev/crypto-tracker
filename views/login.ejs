@@ -1,58 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
-    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:200,500,700,800'>
-    <title>Portfolio</title>
-</head>
-<body>
-<header id="header">
+<%- include('partials/header') -%>
 
-    <div class="container">
-        <div class="subcontainer">
-            <nav class="navbar">
-                <a class="companyname">MONEY BAGS</a>
-                <ul class="social-menu">
-
-
-                </ul>
-                <ul class="nav-menu" id="active">
-                    <li  class="nav-item">
-                        <a  class="nav-link" href="/">MARKET</a>
-                    </li>
-                    <li class="<%=!user? 'gone':'nav-item'%>">
-                        <a  class="<%=!user? 'gone':'nav-item'%>" href="/portfolio">PORTFOLIO</a>
-                    </li>
-                    <li class="<%=user? 'gone':'nav-item'%>">
-                        <a class="<%=user? 'gone':'nav-link'%>" href="/signup">SIGNUP</a>
-                    </li>
-                    <li class="<%=user? 'gone':'nav-item'%>">
-                        <a id="active" class="<%=user? 'gone':'nav-link'%>" href="/login">LOGIN</a>
-                    </li>
-                    <li class="<%=!user? 'gone':'nav-item'%>">
-                        <a class="nav-link" href="/logout">LOGOUT</a>
-                    </li>
-
-
-                </ul>
-
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
 <section>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
@@ -75,7 +22,6 @@
             <div class="fa fa-sign-in"></div>
         </button>
 </section>
-</body>
-</html>
+<%- include('partials/footer') -%>
 
 

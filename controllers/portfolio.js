@@ -25,34 +25,23 @@ module.exports = {
             console.log(err)
         }
     },
-    markComplete: async (req, res)=>{
+    updateCoin: async (req, res)=>{
         try{
-            await portfolio.findOneAndUpdate({_id:req.body.portfolioIdFromJSFile},{
+            await Portfolio.findOneAndUpdate({ _id: req.params.id, },{
                 completed: true
             })
-            console.log('Marked Complete')
-            res.json('Marked Complete')
+            console.log('Coin Updated')
+            res.redirect('/portfolio')
         }catch(err){
             console.log(err)
         }
     },
-    markIncomplete: async (req, res)=>{
-        try{
-            await portfolio.findOneAndUpdate({_id:req.body.portfolioIdFromJSFile},{
-                completed: false
-            })
-            console.log('Marked Incomplete')
-            res.json('Marked Incomplete')
-        }catch(err){
-            console.log(err)
-        }
-    },
+    
     deleteCoin: async (req, res)=>{
         console.log(req.body.IdFromJSFile)
         try{
             await Portfolio.findOneAndDelete({_id:req.body.coinIdFromJSFile})
             console.log('Deleted coin')
-            res.json('Deleted It')
         }catch(err){
             console.log(err)
         }
