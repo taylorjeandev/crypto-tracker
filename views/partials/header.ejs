@@ -26,24 +26,22 @@
 
 
                 </ul>
-                <ul class="nav-menu" id="active">
+                <ul class="nav-menu">
                     <li  class="nav-item">
-                        <a id="active" class="nav-link" href="/">MARKET</a>
+                        <a class="nav-link" href="/">MARKET</a>
                     </li>
-                    <li class="<%=!user? 'gone':'nav-item'%>">
-                        <a  class="<%=!user? 'gone':'nav-item'%>" href="/portfolio">PORTFOLIO</a>
+                    <li class="<%=!user? 'gone':'nav-link'%>">
+                        <a  class="<%=!user? 'gone':'nav-link'%>" href="/portfolio">PORTFOLIO</a>
                     </li>
-                    <li class="<%=user? 'gone':'nav-item'%>">
+                    <li class="<%=user? 'gone':'nav-link'%>">
                         <a class="<%=user? 'gone':'nav-link'%>" href="/signup">SIGNUP</a>
                     </li>
-                    <li class="<%=user? 'gone':'nav-item'%>">
+                    <li class="<%=user? 'gone':'nav-link'%>">
                         <a class="<%=user? 'gone':'nav-link'%>" href="/login">LOGIN</a>
                     </li>
-                    <li class="<%=!user? 'gone':'nav-item'%>">
+                    <li class="<%=!user? 'gone':'nav-link'%>">
                         <a class="nav-link" href="/logout">LOGOUT</a>
                     </li>
-
-
                 </ul>
 
                 <div class="hamburger">
