@@ -43,12 +43,6 @@ li {
     list-style: none;
 }
 
-a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-}
-
 .companyname {
     font-family: 'Poppins';
     font-style: normal;
@@ -71,7 +65,7 @@ a {
     justify-content: space-between;
     align-items: center;
     gap: 3.75rem;
-
+    color: white;
 
 }
 
@@ -87,6 +81,9 @@ a {
 
 .nav-link:hover{
     color: #06D6A0 ;
+}
+.nav-link:link{
+    color: white;
 }
 
 
@@ -207,7 +204,7 @@ form{
     height: 20px;
 
     background: #06D6A0;
-
+    color:white;
     border-radius: 4px;
 
 
@@ -292,10 +289,6 @@ color:red;
 
 .loss{
     color: red;
-}
-
-#active{
-    color: #06D6A0;
 }
 
 .gone{
