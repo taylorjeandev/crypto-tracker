@@ -31,7 +31,7 @@
 
                     <% if(element.symbol === el.coin.toLowerCase()){%>
 
-                    <%=(currencies[index].current_price.toFixed(2) * Math.floor(el.amount)) - Math.floor(el.pricePaid)  %>
+                    <%=(Math.floor(currencies[index].current_price) * Math.floor(el.amount)) - Math.floor(el.pricePaid)  %>
 
 
 
@@ -63,19 +63,27 @@
 
 
 
-    <!-- <form action="/portfolio/updateCoin?_method=PUT"
-          method='POST'
-        > -->
-    <form action="/portfolio/createCoin" method='POST'
-    >
+    <form action="/portfolio/updateCoin?_method=PUT" method='POST' >
 
-        <select name="portfolioItem" id="">
-            <% currencies.forEach( el => { %>
-            <option  value="<%=el.symbol.toUpperCase()%>" ><%=el.name%></option>
-            <% }) %>
-        </select>
-        <input type="text" placeholder="Enter Amount" name='amountOfCoin'>
-        <input type="text" placeholder="Enter Price Paid" name='pricePaid'>
-        <input type="submit">
-    </form>
+    <select name="portfolioItem" id="">
+        <% currencies.forEach( el => { %>
+        <option  value="<%=el.symbol.toUpperCase()%>" ><%=el.name%></option>
+        <% }) %>
+    </select>
+    <input type="text" placeholder="Enter Amount" name='amountOfCoin'>
+    <input type="text" placeholder="Enter Price Paid" name='pricePaid'>
+    <input type="submit">
+</form>
+<!--    <form action="/portfolio/createCoin" method='POST'-->
+<!--    >-->
+
+<!--        <select name="portfolioItem" id="">-->
+<!--            <% currencies.forEach( el => { %>-->
+<!--            <option  value="<%=el.symbol.toUpperCase()%>" ><%=el.name%></option>-->
+<!--            <% }) %>-->
+<!--        </select>-->
+<!--        <input type="text" placeholder="Enter Amount" name='amountOfCoin'>-->
+<!--        <input type="text" placeholder="Enter Price Paid" name='pricePaid'>-->
+<!--        <input type="submit">-->
+<!--    </form>-->
 <%- include('partials/footer') -%>

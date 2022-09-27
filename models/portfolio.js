@@ -3,19 +3,19 @@ const mongoose = require('mongoose')
 const PortfolioSchema = new mongoose.Schema({
   coin: {
     type: String,
-    required: true,
+    required: false,
   },
   amount: {
     type: Number,
-    required: true,
+    required: false,
   },
   userId: {
     type: String,
-    required: true
+    required: false
   },
   pricePaid:{
     type: Number,
-    required: true
+    required: false
   }
 })
 
