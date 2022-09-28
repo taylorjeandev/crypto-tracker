@@ -37,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/taylorjeandev/crypto-tracker/issues"
   },
-  "homepage": "https://github.com/taylorjeandev/crypto-tracker#readme"
+  "homepage": "https://github.com/taylorjeandev/crypto-tracker#readme",
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.4.0"
+  }
 }
