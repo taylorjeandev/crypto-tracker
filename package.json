@@ -12,7 +12,8 @@
     "url": "https://github.com/taylorjeandev/crypto-tracker.git"
   },
   "engines": {
-    "node": "18.1"
+    "node": "18.1",
+    "npm": "8.8.0"
   },
   "author": "",
   "license": "ISC",
