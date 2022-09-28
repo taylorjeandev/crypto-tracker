@@ -13,7 +13,7 @@ const portfolioRoutes = require('./routes/portfolio');
 const axios = require('axios');
 
 //Use .env file in config folder
-require('dotenv').config({path: './config/.env'});
+require('dotenv').config({path: './.env'});
 
 // Passport config
 require('./config/passport')(passport)
@@ -63,6 +63,6 @@ app.use('/portfolio', portfolioRoutes)
 
 //Server Running
 
-app.listen(process.env.PORT || '0.0.0.0', ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it on !')
 })    
