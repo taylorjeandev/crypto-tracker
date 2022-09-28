@@ -78,6 +78,9 @@ li {
     line-height: 1.625rem;
     color: white;
 }
+.current-link{
+    color: #06D6A0 
+}
 
 .nav-link:hover{
     color: #06D6A0 ;
