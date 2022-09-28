@@ -62,7 +62,7 @@ app.use('/', mainRoutes)
 app.use('/portfolio', portfolioRoutes)
 
 //Server Running
-const PORT = process.env.PORT;
-app.listen(PORT || '0.0.0.0', ()=>{
+
+app.listen(process.env.PORT || '0.0.0.0', ()=>{
     console.log('Server is running, you better catch it on !')
 })    
