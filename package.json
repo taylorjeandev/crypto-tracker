@@ -1,29 +1,25 @@
 {
   "name": "crypto-tracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "crypto portfolio tracker",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/taylorjeandev/crypto-tracker.git"
   },
-  "engines": {
-    "node": "18.1",
-    "npm": "8.8.0"
-  },
-  "author": "",
-  "license": "ISC",
+  "author": "Taylor Jean",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.8",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
