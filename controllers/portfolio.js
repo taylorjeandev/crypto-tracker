@@ -1,4 +1,4 @@
-const Portfolio = require('../models/Portfolio.js')
+const Portfolio = require('../models/Portfolio')
 const axios = require("axios");
 
 module.exports = {
