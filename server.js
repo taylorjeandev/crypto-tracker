@@ -13,7 +13,7 @@ const portfolioRoutes = require('./routes/portfolio');
 const axios = require('axios');
 
 //Use .env file in config folder
-require('dotenv').config({path: './.env'});
+require('dotenv').config({path: './config/.env'});
 
 // Passport config
 require('./config/passport')(passport)
