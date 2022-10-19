@@ -17,7 +17,6 @@
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^3.2.0",
-    "dotenv": "^8.2.0",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-flash": "^0.0.2",
@@ -30,6 +29,9 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   },
   "bugs": {
     "url": "https://github.com/taylorjeandev/crypto-tracker/issues"
