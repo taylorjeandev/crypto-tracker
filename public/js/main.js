@@ -42,7 +42,7 @@ if(totalMoney > 0){
 }
 
 // adding color to the profit column
-for (let i = 0; i< total.length;i++){
+for (let i = 0; i< total.length;i++)    {
     if(Number(total[i].innerText)>0){
         total[i].className = "profit"
     } else {
