@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const PortfolioSchema = new mongoose.Schema({
   coin: {
@@ -13,10 +13,10 @@ const PortfolioSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  pricePaid:{
+  pricePaid: {
     type: Number,
     required: true,
-  }
-})
+  },
+});
 
-module.exports = mongoose.model('Portfolio', PortfolioSchema)
+module.exports = mongoose.model("Portfolio", PortfolioSchema);

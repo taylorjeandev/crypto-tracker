@@ -1,76 +1,64 @@
 <%- include('partials/header') -%>
 
 <section class="portfolioSection">
-    <h1>Portfolio</h1>
+  <h1>Portfolio</h1>
 </section>
 
-    <table class="styled-table">
-        <thead>
-            <tr>
-                <th>Quantity</th>
-                <th>Name</th>
-                <th>Initial Price </th>
-                <th>Profit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-        <% coin.forEach( el => { %>
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Name</th>
+      <th>Price Paid</th>
+      <th>Profit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% coin.forEach( el => { %>
 
-        <tr class="active-row portfolioItem test" data-id='<%=el._id%>'>
-            <td><%=el.amount%></td>
-            <td>
-                <img class="coinImages" src="<%= el.image %>" alt="">
-                <%= el.coin %>
+    <tr class="active-row portfolioItem test" data-id="<%=el._id%>">
+      <td><%=el.amount%></td>
+      <td>
+        <img class="coinImages" src="<%= el.image %>" alt="" />
+        <%= el.coin %>
+      </td>
+      <td><%= el.pricePaid %></td>
+      <td id="profit" class="total">
+        <%currencies.findIndex((element,index)=>{ %> <% if(element.symbol ===
+        el.coin.toLowerCase()){%>
+        <%=(Math.floor(currencies[index].current_price) * Math.floor(el.amount))
+        - Math.floor(el.pricePaid) %>
+      </td>
+      <% } %> <% }) %>
+      <td class="del"><button>Delete</button></td>
+    </tr>
 
-            </td>
-            <td> <%= el.pricePaid %></td>
-            <td id="profit" class="total">
-                <%currencies.findIndex((element,index)=>{ %>
-
-                    <% if(element.symbol === el.coin.toLowerCase()){%>
-
-                    <%=(Math.floor(currencies[index].current_price) * Math.floor(el.amount)) - Math.floor(el.pricePaid)  %>
-
-
-
-            </td>
-            <% } %>
-            <% }) %>
-            <td class='del'>Delete </td>
-        </tr>
-
-        <% }) %>
-        <tr class="active-row portfolioItem test">
-            <td>Total</td>
-            <td></td>
-            <td></td>
-            <td id="currentBalance"></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
-
-
-
-
-
+    <% }) %>
+    <tr class="active-row portfolioItem test">
+      <td>Total</td>
+      <td></td>
+      <td></td>
+      <td id="currentBalance"></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 <section class="portfolioSection">
-    <h2><%= user.userName %> has <%= amount %> coin</h2>
+  <h2><%= user.userName %> has <%= amount %> coin</h2>
 </section>
 
-
-
-    <form action="/portfolio/updateCoin?_method=PUT" method='POST' >
-
-    <select name="portfolioItem" id="">
-        <% currencies.forEach( el => { %>
-        <option  value="<%=el.symbol.toUpperCase()%>" ><%=el.name%></option>
-        <% }) %>
-    </select>
-    <input type="text" placeholder="Enter Amount" name='amountOfCoin'>
-    <input type="text" placeholder="Enter Price Paid" name='pricePaid'>
-    <input type="submit">
+<form action="/portfolio/updateCoin?_method=PUT" method="POST">
+  <select name="portfolioItem" id="">
+    <% currencies.forEach( el => { %>
+    <option value="<%=el.symbol.toUpperCase()%>"><%=el.name%></option>
+    <% }) %>
+  </select>
+  <input type="text" placeholder="Enter Amount" name="amountOfCoin" />
+  <input type="text" placeholder="Enter Price Paid" name="pricePaid" />
+  <button>
+    <input type="submit" />
+  </button>
 </form>
 <%- include('partials/footer') -%>

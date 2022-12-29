@@ -1,59 +1,80 @@
 <%- include('partials/header') -%>
 <section id="section1">
-    <section class="main">
-        <h1 class="mainh1">Start <span >monitoring</span> your portfolio</h1>
-        <p class="paragraphSection1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut ducimus eius error esse, et ex facere magni minima perferendis placeat porro possimus quos reprehenderit tempora tempore totam veniam voluptate voluptates!
-        </p>
-        <div id="like_button_container"></div>
+  <section class="main">
+    <h1 class="mainh1">Start <span>monitoring</span> your portfolio</h1>
+    <p class="paragraphSection1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut ducimus eius
+      error esse, et ex facere magni minima perferendis placeat porro possimus
+      quos reprehenderit tempora tempore totam veniam voluptate voluptates!
+    </p>
+    <div id="like_button_container"></div>
 
-        <a class="buttonMain" href="/signup">Get Started</a>
-
-
-    </section>
-    <img class="mascot" src="https://i.postimg.cc/mZCrhhny/Pngtree-cryptocurrency-miner-guy-5315592.png" alt="">
+    <a class="buttonMain" href="/signup">Get Started</a>
+  </section>
+  <img
+    class="mascot"
+    src="https://i.postimg.cc/mZCrhhny/Pngtree-cryptocurrency-miner-guy-5315592.png"
+    alt=""
+  />
 </section>
 <section>
-    
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>1h%</th>
+        <th>24h%</th>
+        <th>7D%</th>
+        <th>14D%</th>
+        <th>30D%</th>
+        <th>1Y%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% currencies.forEach( el => { %>
 
-    <table class="styled-table">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th></th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>1h%</th>
-            <th>24h%</th>
-            <th>7D%</th>
-            <th>14D%</th>
-            <th>30D%</th>
-            <th>1Y%</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% currencies.forEach( el => { %>
+      <tr class="active-row">
+        <td><%= el.market_cap_rank %></td>
+        <td><img class="coinImages" src="<%= el.image %>" alt="" /></td>
+        <td><%= el.name %></td>
 
-            <tr class="active-row">
-                <td><%= el.market_cap_rank %></td>
-                <td><img class="coinImages" src="<%= el.image %>" alt=""></td>
-                <td>  <%= el.name %>  </td>
-
-                <td><%= el.current_price %></td>
-                <td class="<%= el.price_change_percentage_1h_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_1h_in_currency.toFixed(2) %></td>
-                <td class="<%= el.price_change_percentage_24h > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_24h.toFixed(2)%></td>
-                <td class="<%= el.price_change_percentage_7d_in_currency> 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_7d_in_currency.toFixed(2) %></td>
-                <td class="<%= el.price_change_percentage_14d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_14d_in_currency.toFixed(2) %></td>
-                <td class="<%= el.price_change_percentage_30d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_30d_in_currency.toFixed(2) %></td>
-                <td class="<%= el.price_change_percentage_1y_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"><%= el.price_change_percentage_1y_in_currency.toFixed(2) %></td>
-            </tr>
-        <% }) %>
-        </tbody>
-    </table>
+        <td><%= el.current_price %></td>
+        <td
+          class="<%= el.price_change_percentage_1h_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"
+        >
+          <%= el.price_change_percentage_1h_in_currency.toFixed(2) %>
+        </td>
+        <td
+          class="<%= el.price_change_percentage_24h > 0? 'positiveNumber': 'negativeNumber'%>"
+        >
+          <%= el.price_change_percentage_24h.toFixed(2)%>
+        </td>
+        <td
+          class="<%= el.price_change_percentage_7d_in_currency> 0? 'positiveNumber': 'negativeNumber'%>"
+        >
+          <%= el.price_change_percentage_7d_in_currency.toFixed(2) %>
+        </td>
+        <td
+          class="<%= el.price_change_percentage_14d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"
+        >
+          <%= el.price_change_percentage_14d_in_currency.toFixed(2) %>
+        </td>
+        <td
+          class="<%= el.price_change_percentage_30d_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"
+        >
+          <%= el.price_change_percentage_30d_in_currency.toFixed(2) %>
+        </td>
+        <td
+          class="<%= el.price_change_percentage_1y_in_currency > 0? 'positiveNumber': 'negativeNumber'%>"
+        >
+          <%= el.price_change_percentage_1y_in_currency.toFixed(2) %>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
 </section>
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-<script src="like_button.js"></script>
 <%- include('partials/footer') -%>
-
-
